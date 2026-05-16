@@ -1,0 +1,24 @@
+# Normalise les fins de ligne : LF dans le repo, natif en local
+* text=auto
+
+# Forcer LF sur les fichiers qui seront exécutés sur Linux (Docker, CI/CD, Cloud Run)
+*.sh text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.sql text eol=lf
+*.tf text eol=lf
+Dockerfile text eol=lf
+Makefile text eol=lf
+
+# Fichiers binaires — ne jamais toucher aux fins de ligne
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pkl binary
+*.joblib binary
+*.h5 binary
