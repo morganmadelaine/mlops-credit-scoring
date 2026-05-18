@@ -7,4 +7,9 @@ terraform {
       version = "~> 6.0"
     }
   }
+
+  backend "gcs" {
+    bucket = "credit-scoring-mlops-mm-001-tfstate"
+    prefix = "terraform/state/main"
+  }
 }
