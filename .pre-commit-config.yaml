@@ -16,3 +16,5 @@ repos:
         args: ['--maxkb=1000']
       - id: check-merge-conflict
       - id: detect-private-key
+      - id: no-commit-to-branch
+        args: ['--branch', 'main']
