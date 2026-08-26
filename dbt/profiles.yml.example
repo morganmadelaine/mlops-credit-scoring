@@ -1,0 +1,12 @@
+credit_scoring:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: your-gcp-project-id
+      dataset: credit_scoring_staging
+      location: EU
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
