@@ -26,3 +26,6 @@ MLOps and Data Engineering practices.
 
 Kubernetes, drift monitoring, advanced hyperparameter tuning, feature store,
 automated retraining. These belong to the next project (data platform flagship).
+
+## Target project completion date
+September 20, 2026

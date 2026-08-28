@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_application_train
+    description: >
+      One row per loan application, with the default label.
+      Types normalised from the raw layer: all flag columns cast to boolean,
+      days_employed sentinel value 365243 neutralised to NULL.
+    columns:
+      - name: application_id
+        description: Primary key, one row per loan application.
+        tests:
+          - unique
+          - not_null
+
+      - name: is_default
+        description: 1 if the client had payment difficulties, 0 otherwise.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+      - name: age_years
+        description: Applicant age in years, derived from days_birth.
+        tests:
+          - not_null
+
+      - name: gender
+        description: Applicant gender. XNA marks unspecified values in the source data.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['M', 'F', 'XNA']
+
+      - name: contract_type
+        description: Loan product type.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Cash loans', 'Revolving loans']

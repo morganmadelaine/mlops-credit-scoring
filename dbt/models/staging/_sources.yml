@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Raw Home Credit Default Risk tables, loaded from GCS via bq load.
+      Types are inferred by BigQuery autodetect and normalised downstream.
+    database: credit-scoring-mlops-mm-001
+    schema: credit_scoring_raw
+    tables:
+      - name: application_train
+        description: One row per loan application, with the TARGET label.
+      - name: application_test
+        description: One row per loan application, unlabelled. Used as a realistic scoring batch.
+      - name: bureau
+        description: One row per credit reported to the credit bureau by other institutions.
+      - name: bureau_balance
+        description: Monthly balance snapshot per bureau credit.
+      - name: previous_application
+        description: One row per previous Home Credit application.
+      - name: pos_cash_balance
+        description: Monthly balance snapshot per POS or cash loan.
+      - name: installments_payments
+        description: One row per installment payment, scheduled and actual.
+      - name: credit_card_balance
+        description: Monthly balance snapshot per credit card.
